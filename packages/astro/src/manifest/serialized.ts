@@ -1,7 +1,7 @@
 import type { Plugin, ViteDevServer } from 'vite';
 import { ACTIONS_ENTRYPOINT_VIRTUAL_MODULE_ID } from '../actions/consts.js';
 import { toFallbackType } from '../core/app/common.js';
-import { toRoutingStrategy } from '../core/app/index.js';
+import { toRoutingStrategy } from '../core/app/entrypoints/index.js';
 import type { SerializedSSRManifest, SSRManifestCSP, SSRManifestI18n } from '../core/app/types.js';
 import { MANIFEST_REPLACE } from '../core/build/plugins/plugin-manifest.js';
 import {
@@ -174,6 +174,11 @@ async function createSerializedManifest(settings: AstroSettings): Promise<Serial
 		sessionConfig: sessionConfigToManifest(settings.config.session),
 		cacheConfig: cacheConfigToManifest(settings.config.experimental?.cache),
 		csp,
+		image: {
+			objectFit: settings.config.image.objectFit,
+			objectPosition: settings.config.image.objectPosition,
+			layout: settings.config.image.layout,
+		},
 		devToolbar: {
 			enabled:
 				settings.config.devToolbar.enabled &&

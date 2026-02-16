@@ -122,7 +122,11 @@ export async function createVite(
 		appType: 'custom',
 		plugins: [
 			serializedManifestPlugin({ settings, command, sync }),
-			vitePluginRenderers({ settings }),
+			vitePluginRenderers({
+				settings,
+				routesList,
+				command: command === 'dev' ? 'serve' : 'build',
+			}),
 			vitePluginStaticPaths(),
 			await astroPluginRoutes({ routesList, settings, logger, fsMod: fs, command }),
 			astroVirtualManifestPlugin(),

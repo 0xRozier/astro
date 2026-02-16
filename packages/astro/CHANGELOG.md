@@ -1,5 +1,39 @@
 # astro
 
+## 6.0.0-beta.13
+
+### Minor Changes
+
+- [#15529](https://github.com/withastro/astro/pull/15529) [`a509941`](https://github.com/withastro/astro/commit/a509941a7a7a1e53f402757234bb88e5503e5119) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Adds a new build-in font provider `npm` to access fonts installed as NPM packages
+
+  You can now add web fonts specified in your `package.json` through Astro's type-safe Fonts API. The `npm` font provider allows you to add fonts either from locally installed packages in `node_modules` or from a CDN.
+
+  Set `fontProviders.npm()` as your fonts provider along with the required `name` and `cssVariable` values, and add `options` as needed:
+
+  ```js
+  import { defineConfig, fontProviders } from 'astro/config';
+
+  export default defineConfig({
+    experimental: {
+      fonts: [
+        {
+          name: 'Roboto',
+          provider: fontProviders.npm(),
+          cssVariable: '--font-roboto',
+        },
+      ],
+    },
+  });
+  ```
+
+  See the [NPM font provider reference documentation](https://v6.docs.astro.build/en/reference/font-provider-reference/#npm) for more details.
+
+### Patch Changes
+
+- [#15507](https://github.com/withastro/astro/pull/15507) [`07f6610`](https://github.com/withastro/astro/commit/07f66101ed2850874c8a49ddf1f1609e6b1339fb) Thanks [@matthewp](https://github.com/matthewp)! - Avoid bundling SSR renderers when only API endpoints are dynamic
+
+- [#15459](https://github.com/withastro/astro/pull/15459) [`a4406b4`](https://github.com/withastro/astro/commit/a4406b4dfbca3756983b82c37d7c74f84d2de096) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Fixes a case where `context.csp` was logging warnings in development that should be logged in production only
+
 ## 6.0.0-beta.12
 
 ### Major Changes

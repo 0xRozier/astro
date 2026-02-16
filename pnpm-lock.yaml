@@ -4343,12 +4343,6 @@ importers:
         specifier: workspace:*
         version: link:../../..
 
-  packages/astro/test/fixtures/ssr-locals:
-    dependencies:
-      astro:
-        specifier: workspace:*
-        version: link:../../..
-
   packages/astro/test/fixtures/ssr-markdown:
     dependencies:
       astro:
@@ -4389,12 +4383,6 @@ importers:
         version: link:../../..
 
   packages/astro/test/fixtures/ssr-request:
-    dependencies:
-      astro:
-        specifier: workspace:*
-        version: link:../../..
-
-  packages/astro/test/fixtures/ssr-response:
     dependencies:
       astro:
         specifier: workspace:*

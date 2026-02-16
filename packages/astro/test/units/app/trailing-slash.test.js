@@ -54,6 +54,9 @@ function createManifest({ routes, pageMap, base = '/', trailingSlash = 'ignore' 
 		},
 		internalFetchHeaders: undefined,
 		logLevel: 'silent',
+		experimentalQueuedRendering: {
+			enabled: false,
+		},
 	};
 }
 

@@ -54,6 +54,9 @@ function createManifest({ routes, pageMap }) {
 		},
 		internalFetchHeaders: undefined,
 		logLevel: 'silent',
+		experimentalQueuedRendering: {
+			enabled: false,
+		},
 	};
 }
 

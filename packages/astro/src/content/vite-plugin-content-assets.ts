@@ -57,7 +57,8 @@ export function astroContentAssetPropagationPlugin({
 					// (e.g. astro:assets:esm) can detect content collection images and avoid creating
 					// full SVG components, which would import from the server runtime and cause a
 					// circular module dependency deadlock when combined with top-level await (TLA).
-					return { ...resolved, id: `${resolved.id}?${CONTENT_IMAGE_FLAG}` };
+					resolved.id = `${resolved.id}?${CONTENT_IMAGE_FLAG}`;
+					return resolved;
 				}
 				if (hasContentFlag(id, CONTENT_RENDER_FLAG)) {
 					const base = id.split('?')[0];

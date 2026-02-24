@@ -2,4 +2,4 @@
 "astro": patch
 ---
 
-Fix original images from prerendered pages being exposed in SSR build output. Previously, unoptimized source images were incorrectly retained in the client `_astro/` directory for SSR builds, allowing the originals to be accessed by guessing the filename. Now, originals that are only used for optimization are deleted, while directly-referenced originals (e.g. via `<img src={img.src}>`) are preserved.
+Fixes an issue where original (unoptimized) images from prerendered pages could be kept in the build output during SSR builds.

@@ -108,11 +108,8 @@ export async function generateImagesForPath(
 		await generateImage(transform.finalPath, transform.transform);
 	}
 
-	// Delete original images that are only used for optimization (not directly referenced).
-	// The referencedImages set tracks images used via raw `src` access (e.g., <img src={img.src}>).
-	// In SSR builds, the prerender environment now tracks referencedImages, so we can safely
-	// delete unreferenced originals. The staticImages map only contains images from prerendered
-	// pages (addStaticImage is called during build-time rendering, not at SSR request time).
+	// Delete original images that are only used for optimization
+	// The referencedImages set tracks images that were used via raw `src` access (e.g., <img src={img.src}>).
 	if (
 		transformsAndPath.originalSrcPath &&
 		!globalThis.astroAsset.referencedImages?.has(transformsAndPath.originalSrcPath)
